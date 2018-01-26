@@ -30,6 +30,12 @@ public class Person {
 
 	public void addFriend(Person friend) {
 		this.friends.add(friend);
+		friend.friends.add(this);
+	}
+
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", name=" + name + "]";
 	}
 
 }
