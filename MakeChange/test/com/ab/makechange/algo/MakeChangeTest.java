@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 class MakeChangeTest {
 	
 	private MakeChangeAlgorithm algo= new MakeChangeAlgorithm();
+	private MakeChangeAlgoOld algoOld= new MakeChangeAlgoOld();
 
 	@Test
 	void makeChangeTestOne() {
@@ -63,6 +64,18 @@ class MakeChangeTest {
 		int actual = algo.computeChange(8);
 		System.out.println("Combinations:["+actual+"], expected;["+7+"]");
 		assertTrue(actual==7);
+	}
+	
+	@Test
+	void makeChangeTest399() {
+		long start = System.currentTimeMillis();
+		int oldActual = algoOld.computeChange(100000);
+		System.out.println("Combinations:["+oldActual+"] time taken:["+(System.currentTimeMillis() - start)+"]");
+		start = System.currentTimeMillis();
+		int actual = algo.computeChange(100000);
+		
+		System.out.println("Combinations:["+actual+"] time taken:["+(System.currentTimeMillis() - start)+"]");
+		//assertTrue(actual==7);
 	}
 	
 	

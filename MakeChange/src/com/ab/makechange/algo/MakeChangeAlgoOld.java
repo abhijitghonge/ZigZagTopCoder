@@ -1,6 +1,6 @@
 package com.ab.makechange.algo;
 
-public class MakeChangeAlgorithm {
+public class MakeChangeAlgoOld {
 
 	private int[] denoms = new int[] { 100, 50, 20, 10, 5, 2, 1 };
 
@@ -30,7 +30,7 @@ public class MakeChangeAlgorithm {
 	 * @return
 	 */
 	private int computeChange(int index, int value, int[][] cache) {
-		if (cache[value][index] != 0) {
+		if (cache[value][index] > 0) {
 
 			return cache[value][index];
 		}
