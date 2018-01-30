@@ -43,13 +43,11 @@ public class MakeChangeAlgoOld {
 		int denomValue = denoms[index];
 
 		for (int i = 0; i * denomValue <= value; i++) {
-
 			int remainingValue = value - i * denomValue;
 			combinations = combinations + computeChange(index + 1, remainingValue, cache);
-			cache[value][index] = combinations;
-
 		}
 
+		cache[value][index] = combinations;
 		return combinations;
 	}
 

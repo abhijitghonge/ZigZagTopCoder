@@ -69,10 +69,10 @@ class MakeChangeTest {
 	@Test
 	void makeChangeTest399() {
 		long start = System.currentTimeMillis();
-		int oldActual = algoOld.computeChange(100000);
+		int oldActual = algoOld.computeChange(1000);
 		System.out.println("Combinations:["+oldActual+"] time taken:["+(System.currentTimeMillis() - start)+"]");
 		start = System.currentTimeMillis();
-		int actual = algo.computeChange(100000);
+		int actual = algo.computeChange(1000);
 		
 		System.out.println("Combinations:["+actual+"] time taken:["+(System.currentTimeMillis() - start)+"]");
 		//assertTrue(actual==7);

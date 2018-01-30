@@ -15,9 +15,8 @@ public class MakeChangeAlgorithm {
 	}
 
 	public int computeChange(int value) {
-		int[][] cache = new int[value + 1][denoms.length];
 		int minIndex = findMinIndex(value);
-		return computeChange(minIndex, value, cache);
+		return computeChange(minIndex, value);
 	}
 
 	/**
@@ -29,11 +28,8 @@ public class MakeChangeAlgorithm {
 	 * @param value
 	 * @return
 	 */
-	private int computeChange(int index, int value, int[][] cache) {
-		if (cache[value][index] != 0) {
-
-			return cache[value][index];
-		}
+	private int computeChange(int index, int value) {
+	
 
 		// only one combination of all ones. hence return 1
 		if (index >= denoms.length - 1)
@@ -45,8 +41,8 @@ public class MakeChangeAlgorithm {
 		for (int i = 0; i * denomValue <= value; i++) {
 
 			int remainingValue = value - i * denomValue;
-			combinations = combinations + computeChange(index + 1, remainingValue, cache);
-			cache[value][index] = combinations;
+			combinations = combinations + computeChange(index + 1, remainingValue);
+			
 
 		}
 
